@@ -1,2 +1,0 @@
-cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/jinseongmin/Desktop/workshop/near/snapn/ft/target/debug/build/typenum-15b5ed85e7c1e907/out/consts.rs
-cargo:rustc-env=TYPENUM_BUILD_OP=/Users/jinseongmin/Desktop/workshop/near/snapn/ft/target/debug/build/typenum-15b5ed85e7c1e907/out/op.rs
