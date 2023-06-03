@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image"
-import { Dispatch, useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 
