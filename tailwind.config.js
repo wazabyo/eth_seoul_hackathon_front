@@ -17,6 +17,7 @@ module.exports = {
 			'helvetica': "'Helvetica', sans-serif;",
 		},
 		screens: {
+			"phone": "340px",
 			"tablet": "1024px",
 		}
   },
