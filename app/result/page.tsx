@@ -86,7 +86,7 @@ function Card({ option, value, result }: {
 				<div className="card_no text main h-[3rem] whitespace-normal line-clamp-2">
 					{result ? value : "You're not Identified"}
 				</div>
-				<div className="holder text text-yellow-400 main">verified by PoP Wallet</div>
+				<div className="holder text text-yellow-400 main">verified by PoPwallet</div>
 				{/* <div className="mastercard_icon svg"></div> */}
 
 			</div>
