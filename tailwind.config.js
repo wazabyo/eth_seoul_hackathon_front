@@ -15,6 +15,9 @@ module.exports = {
     },
 		fontFamily: {
 			'helvetica': "'Helvetica', sans-serif;",
+		},
+		screens: {
+			"tablet": "1024px",
 		}
   },
   plugins: [],
