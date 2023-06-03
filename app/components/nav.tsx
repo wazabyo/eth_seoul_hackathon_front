@@ -33,6 +33,7 @@ export default function Nav() {
 	const [hover, setHover] = useState(false);
 	const [worldHover, setWorldHover] = useState(false);
 	const [final, setFinal] = useState(false);
+	const [confirm, setConfirm] = useState(false);
 
 	useEffect(() => {
 		const fetchWallet = async () => {
@@ -62,7 +63,7 @@ export default function Nav() {
 				</a>
 				<ul className="hidden phone:flex gap-x-4">
 					{
-						(!result && !metaAccount) ? <li className='flex justify-center items-center '><button onClick={() => { console.log(final); setFinal(true); }} className='font-helvetica border-2 border-[#1d0038] bg-gradient-to-r from-violet-500 to-fuchsia-500 px-4 py-2 rounded-full font-semibold hover:opacity-90 duration-300'>&nbsp;Proof of Personhood ✨</button></li> :
+						(!result && !metaAccount) ? <li className='flex justify-center items-center '><button onClick={() => { console.log(final); setFinal(true); }} className='font-helvetica border-2 border-[#1d0038] bg-gradient-to-r from-violet-500 to-fuchsia-500 px-4 py-2 rounded-full font-semibold hover:opacity-80 duration-300'>&nbsp;Proof of Personhood ✨</button></li> :
 							<>
 								<li className='hidden tablet:flex justify-center items-center'>
 									<IDKitWidget
@@ -99,7 +100,7 @@ export default function Nav() {
 				final ?
 					<div className="absolute w-full h-full flex justify-center items-center font-helvetica">
 						<div className='relative w-[500px] h-[500px] z-20 bg-red-500 rounded-lg shadow-2xl flex flex-col justify-center items-center'>
-							<button className='absolute top-5 right-5 font-bold text-white text-2xl'>
+							<button onClick={() => {setFinal(false); setConfirm(false)}} className='absolute top-5 right-5 font-bold text-white text-2xl'>
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
 									<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
 								</svg>
@@ -128,7 +129,17 @@ export default function Nav() {
 									Once linked, there is no turning back. Do you still want to connect ?
 								</div>
 							</div>
-
+							<div className='flex gap-x-4 justify-center items-center font-helvetica font-semibold'>
+							{
+								confirm ? <button onClick={async () => {
+									
+								}} className='border-2 rounded-full w-36 px-10 py-2'>Confirm</button> :
+								<>
+									<button onClick={() => setFinal(false)} className='border-2 rounded-full w-36 px-4 py-2  text-white' >Cancle</button>
+									<button onClick={() => setConfirm(true)} className='border-2 rounded-full w-36 px-4 py-2 bg-white text-red-500 hover:bg-red-500 hover:text-white duration-300' >Connect</button>
+								</>
+							}
+							</div>
 						</div>
 					</div> : null
 			}
