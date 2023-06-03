@@ -59,7 +59,7 @@ export default function Result({
 								className="z-50 shadow-2xl shadow-violet-900 rounded-[29px]"
 							/>
 						</div> */}
-						<Card option={option} value={value} result={result}/>
+						<Card value={value} result={result}/>
 					</> : <div className="w-full h-screen flex justify-center items-center"></div>
 			}
 		</>
@@ -68,8 +68,7 @@ export default function Result({
 
 
 
-function Card({ option, value, result }: {
-	option: string,
+function Card({ value, result }: {
 	value: string,
 	result: boolean,
 }) {
