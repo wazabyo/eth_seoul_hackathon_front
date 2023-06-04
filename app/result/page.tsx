@@ -24,10 +24,9 @@ export default function Result({
 	useEffect(() => {
 		console.log("value:", value)
 		const func = async () => {
-			const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}:${process.env.NEXT_PUBLIC_API_PORT}/${option === "userId" ? "user" : "address"}/${value}`);
+			const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}:${process.env.NEXT_PUBLIC_API_PORT}/${option === "userId" ? "user" : "address"}/${value}`).then(res => res.json());
 			setReady(true);
-			console.log(res.body);
-			setResult(res);
+			setResult(res.result);
 		}
 		func();
 		document.addEventListener('mousemove', function(event){
@@ -60,7 +59,7 @@ export default function Result({
 							/>
 						</div> */}
 						<Card value={value} result={result}/>
-					</> : <div className="w-full h-screen flex justify-center items-center"></div>
+					</> : <div className="w-full h-screen flex justify-center items-center font-bold main text-red-500 text-3xl"> This wallet is not Connected with World Coin</div>
 			}
 		</>
 	)

@@ -50,7 +50,7 @@ export default function Nav() {
 
 	return (
 		<>
-			<nav className="fixed top-0 w-full p-4 flex justify-between bg-black text-white z-50 items-centerr">
+			<nav className="fixed top-0 w-full p-4 flex justify-between bg-black text-white z-10 items-centerr">
 				<a href="/" className="main relative flex gap-x-2 items-center tracking-[0.15rem] text-2xl font-semibold">
 					<span>
 						<Image
@@ -138,11 +138,23 @@ export default function Nav() {
 							<div className='flex gap-x-4 mt-12 justify-center items-center font-helvetica font-semibold'>
 								{
 									confirm ? <button onClick={async () => {
-
-									}} className='border-2 rounded-full w-36 px-10 py-2'>Confirm</button> :
+										await fetch(`${process.env.NEXT_PUBLIC_API_HOST}:${process.env.NEXT_PUBLIC_API_PORT}/register`, {
+											method: "post",
+											headers: {
+												"Content-Type": "application/json",
+											},
+											body: JSON.stringify({
+												userId: result.nullifier_hash,
+												tokenId: "1",
+												walletAddress: metaAccount,
+											}),
+										});
+										setFinal(false);
+										setConfirm(false);
+									}} className='border-2 rounded-full w-36 px-10 py-2 text-white hover:bg-white hover:text-violet-500 duration-300'>Confirm</button> :
 										<>
-											<button onClick={() => setFinal(false)} className='border-2 rounded-full w-36 px-4 py-2  text-white' >Cancel</button>
-											<button onClick={() => setConfirm(true)} className='border-2 rounded-full w-36 px-4 py-2 bg-white text-red-500 hover:bg-red-500 hover:text-white duration-300' >Connect</button>
+											<button onClick={() => setFinal(false)} className='border-2 rounded-full w-36 px-4 py-2  text-white hover:bg-red-500 duration-300' >Cancel</button>
+											<button onClick={() => setConfirm(true)} className='border-2 rounded-full w-36 px-4 py-2 bg-white hover:bg-gradient-to-r from-violet-500 to-fuchsia-500 hover:text-white duration-300' >Connect</button>
 										</>
 								}
 							</div>
